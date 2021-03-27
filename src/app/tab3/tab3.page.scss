@@ -1,0 +1,177 @@
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                            }
+                            /* Zebra striping */
+                            
+                            tr:nth-of-type(odd) {
+                                background: rgb(255, 252, 252) !important;
+                            }
+                            
+                            th {
+                                background: #868484;
+                                color: #ffffff;
+                                font-weight: bold;
+                                font-size: medium;
+                            }
+                            
+                            td,
+                            th {
+                                padding: 6px;
+                                border: 1px solid rgb(134, 132, 132);
+                                text-align: center;
+                                font-size: medium;
+                            }
+                            
+                            @media only screen and (max-width: 760px),
+                            (min-device-width: 768px) and (max-device-width: 1024px) {
+                                /* Force table to not be like tables anymore */
+                                table,
+                                thead,
+                                tbody,
+                                th,
+                                td,
+                                tr {
+                                    display: block;
+                                }
+                                /* Hide table headers (but not display: none;, for accessibility) */
+                                thead tr {
+                                    position: absolute;
+                                    top: -9999px;
+                                    left: -9999px;
+                                }
+                                tr {
+                                    border: 1px solid #ccc;
+                                }
+                                td {
+                                    /* Behave  like a "row" */
+                                    border: none;
+                                    border-bottom: 1px solid #eee;
+                                    position: relative;
+                                    padding-left: 50%;
+                                }
+                                td:before {
+                                    /* Now like a table header */
+                                    position: absolute;
+                                    /* Top/left values mimic padding */
+                                    top: 6px;
+                                    left: 6px;
+                                    width: 45%;
+                                    padding-right: 10px;
+                                    white-space: nowrap;
+                                }
+                                @media only screen and (max-width: 760px),
+                                (min-device-width: 768px) and (max-device-width: 1024px) {
+                                    /* Force table to not be like tables anymore */
+                                    table,
+                                    thead,
+                                    tbody,
+                                    th,
+                                    td,
+                                    tr {
+                                        display: block;
+                                    }
+                                    /* Hide table headers (but not display: none;, for accessibility) */
+                                    thead tr {
+                                        position: absolute;
+                                        top: -9999px;
+                                        left: -9999px;
+                                    }
+                                    tr {
+                                        border: 1px solid #ccc;
+                                    }
+                                    td {
+                                        /* Behave  like a "row" */
+                                        border: none;
+                                        border-bottom: 1px solid #eee;
+                                        position: relative;
+                                        padding-left: 50%;
+                                    }
+                                    td:before {
+                                        /* Now like a table header */
+                                        position: absolute;
+                                        /* Top/left values mimic padding */
+                                        top: 6px;
+                                        left: 6px;
+                                        width: 45%;
+                                        padding-right: 10px;
+                                        white-space: nowrap;
+                                    }
+                                    /*  
+	Label the data
+	*/
+                                    td:nth-of-type(1):before {
+                                        content: "Date";
+                                    }
+                                    td:nth-of-type(2):before {
+                                        content: "ItemID";
+                                    }
+                                    td:nth-of-type(3):before {
+                                        content: "Qty";
+                                    }
+                                    td:nth-of-type(4):before {
+                                        content: "Rate";
+                                    }
+                                    td:nth-of-type(5):before {
+                                        content: "Amount";
+                                    }
+                                }
+                            }
+                            
+                            @media only screen and (max-width: 500px) {
+                                .deskPannelShrink {
+                                    //width:100%;
+                                    //margin-left:15%;
+                                    margin-top: 50px;
+                                }
+                                .ing {
+                                    display: none;
+                                }
+                            }
+                            
+                            // 
+                            @media only screen and (max-width: 760px),
+                            (min-device-width: 768px) and (max-device-width: 1024px) {
+                                /* Force table to not be like tables anymore */
+                                table,
+                                thead,
+                                tbody,
+                                th,
+                                td,
+                                tr {
+                                    display: block;
+                                }
+                                /* Hide table headers (but not display: none;, for accessibility) */
+                                thead tr {
+                                    position: absolute;
+                                    top: -9999px;
+                                    left: -9999px;
+                                }
+                                tr {
+                                    margin: 0 0 1rem 0;
+                                }
+                                tr:nth-child(odd) {
+                                    background: #ccc;
+                                }
+                                td {
+                                    /* Behave  like a "row" */
+                                    border: none;
+                                    border-bottom: 1px solid #eee;
+                                    position: relative;
+                                    padding-left: 50%;
+                                }
+                                td:before {
+                                    /* Now like a table header */
+                                    position: absolute;
+                                    /* Top/left values mimic padding */
+                                    top: 0;
+                                    left: 6px;
+                                    width: 45%;
+                                    padding-right: 10px;
+                                    white-space: nowrap;
+                                }
+                                /*
+  Label the data
+You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+  */
+                            }

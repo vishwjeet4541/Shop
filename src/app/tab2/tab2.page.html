@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            <p>Today is {{date | date}}</p>
+        </ion-title>
+
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-searchbar color="danger" [(ngModel)]="term" placeholder="Search.." class="advancedSearchTextbox"></ion-searchbar>
+
+    <ion-grid>
+        <ion-row>
+
+            <ion-col>Name</ion-col>
+            <ion-col>Rate</ion-col>
+            <ion-col> Barcode</ion-col>
+            <ion-col> Delete item</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let data of elementarray | paginate: config | filter:term  ">
+
+            <ion-col>{{data.data.item_Name}}</ion-col>
+            <ion-col>{{data.data.item_Rate}}</ion-col>
+            <ion-col>{{data.data.item_barcode}}</ion-col>
+            <ion-col>
+                <a (click)="open(data) ">open </a></ion-col>
+        </ion-row>
+
+    </ion-grid>
+    <pagination-controls (pageChange)="pageChanged($event) "></pagination-controls>
+
+    <div *ngIf="value == true">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <h3>Item Name :</h3>
+                    <p style="color: black;
+                    font-family: system-ui;
+                ">{{Name}}</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <h3>Rate :</h3>
+                    <p style="color: black;
+                    font-family: system-ui;
+                ">
+                        {{Rate}}
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating ">Enter Qty</ion-label>
+                <ion-input [(ngModel)]="qty" type="number"></ion-input>
+            </ion-item>
+        </ion-list>
+        <ion-button (click)="calculate() ">Calculate </ion-button>
+        <ion-card *ngIf="cal == true">
+
+
+            <ion-card-header>
+                <ion-card-title style="text-align: center;">Total Amount</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content style="text-align: center;
+            FONT-FAMILY: fantasy;
+            font-size: 32px;
+        ">
+                {{totalamount }}
+                <div>
+                    <ion-button (click)="save()">Save</ion-button>
+                    <ion-button (click)="Cancel()" color="danger">Cancel</ion-button>
+                </div>
+            </ion-card-content>
+
+        </ion-card>
+    </div>
+</ion-content>

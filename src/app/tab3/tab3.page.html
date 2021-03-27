@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Transaction
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-grid>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">ItemID</th>
+
+                    <th scope="col">Qty</th>
+                    <th scope="col">Rate </th>
+                    <th scope="col">Amount </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of item ; let i = index;">
+                    <td scope="row">{{data.date }}</td>
+                    <td scope="row">{{data.item_id}}</td>
+                    <td scope="row">{{data.Amount}}</td>
+                    <td scope="row">{{data.item_Rate}}</td>
+                    <td scope="row">{{data.Qty}}</td>
+
+
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </ion-grid>
+</ion-content>

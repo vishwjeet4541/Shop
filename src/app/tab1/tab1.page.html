@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Add item
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div>
+        <form [formGroup]="ItemData" (ngSubmit)="submitForm()">
+            <ion-item>
+                <ion-label position="floating">EnterID</ion-label>
+                <ion-input formControlName="item_id" type="text "></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating ">Enter Name</ion-label>
+                <ion-input formControlName="item_Name" type="text "></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating ">Enter Rate</ion-label>
+                <ion-input formControlName="item_Rate" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating ">Enter barcode</ion-label>
+                <ion-input formControlName="item_barcode" type="text "></ion-input>
+            </ion-item>
+            <div>
+                <ion-button expand="full " type="submit">Save Data</ion-button>
+            </div>
+        </form>
+    </div>
+
+    <ion-grid>
+        <ion-row>
+
+            <ion-col>Name</ion-col>
+            <ion-col>Rate</ion-col>
+            <ion-col> Barcode</ion-col>
+            <ion-col> Delete item</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let data of item ; let i = index;">
+
+            <ion-col>{{data.item_Name}}</ion-col>
+            <ion-col>{{data.item_Rate}}</ion-col>
+            <ion-col>{{data.item_barcode}}</ion-col>
+            <ion-col>
+                <a (click)="delete(i)">Delete </a></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
